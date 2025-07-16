@@ -15,6 +15,7 @@ const Modal = ({ onClose, open, contact, isUpdate }) => {
 
     })
     const addContact = async (contact) => {
+        console.log(contact)
         const contactRef = collection(db, "contacts")
         await addDoc(contactRef, contact)
         onClose()
@@ -64,7 +65,7 @@ const Modal = ({ onClose, open, contact, isUpdate }) => {
                                         <Field className='border w-full border-black py-1 px-2' name="email" placeholder='Enter email' />
                                         <div  className='text-sm text-red-500'><ErrorMessage name="email" /></div>
                                     </div>
-                                    <button className='border border-black self-end px-2 py-1 bg-black text-white'>{isUpdate ? 'update' : 'add'} contact</button>
+                                    <button  className='border border-black self-end px-2 py-1 bg-black text-white'>{isUpdate ? 'update' : 'add'} contact</button>
                                 </div>
                             </Form>
                         </Formik>
